@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Book (Portfolio Sample)</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+SC:wght@500;700&family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#2BB7A5;
+  --teal-dark:#2D928E;
+  --teal-bright:#2BD4B5;
+  --navy:#0F2942;
+  --text-dark:#1F2F3A;
+  --text-body:#5F6F6B;
+  --dark-alt:#36423D;
+  --red:#FF4D4D;
+  --red2:#EF5147;
+  --bg-light:#F8FBFB;
+  --bg-light2:#F4FBFA;
+  --bg-light3:#EEF7F5;
+  --bg-light4:#EAF7F5;
+  --border:#E0E0E0;
+  --mint:#D7EBE6;
+  --mint2:#CFE3DF;
+  --sage:#A9C1BB;
+  --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter Tight',sans-serif;color:var(--text-dark);background:#fff;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+section{padding:90px 20px;}
+.center{text-align:center;}
+h1,h2,h3{font-family:'Alegreya',serif;}
+.eyebrow{font-family:'Alegreya SC',serif;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:16px;display:inline-block;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;font-weight:700;font-size:18px;
+  padding:18px 40px;border-radius:20px;border:none;cursor:pointer;text-decoration:none;font-family:'Inter Tight',sans-serif;
+  box-shadow:0 15px 35px rgba(43,183,165,.3);transition:transform .2s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:18px;}
+.section-title .accent{color:var(--teal-dark);}
+.section-desc{max-width:720px;margin:0 auto 50px;color:var(--text-body);font-size:18px;line-height:1.8;font-family:'Inter',sans-serif;}
+
+/* PORTFOLIO BANNER */
+.portfolio-banner{background:var(--teal-dark);color:#fff;text-align:center;font-size:13px;font-weight:700;padding:8px;letter-spacing:.02em;}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,var(--bg-light) 0%,var(--bg-light3) 100%);padding:80px 20px 60px;}
+.hero-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;}
+.hero-tag{font-family:'Alegreya SC',serif;color:var(--teal-dark);font-size:15px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;}
+.hero h1{font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.15;color:var(--navy);font-weight:800;margin-bottom:14px;}
+.hero-sub{font-family:'Alegreya',serif;font-style:italic;font-size:20px;color:var(--teal-dark);margin-bottom:20px;}
+.hero-desc{font-family:'Inter',sans-serif;color:var(--text-body);font-size:17px;line-height:1.8;margin-bottom:26px;max-width:480px;}
+.hero-note{font-size:13px;color:var(--text-body);margin-top:14px;font-family:'Inter',sans-serif;}
+.book-cover{width:100%;aspect-ratio:3/4;border-radius:16px;background:linear-gradient(160deg,var(--navy),var(--dark-alt));display:flex;align-items:center;justify-content:center;color:var(--teal-bright);font-family:'Alegreya SC',serif;font-size:32px;font-weight:700;text-align:center;box-shadow:0 30px 70px rgba(15,41,66,.25);padding:30px;}
+
+/* TESTIMONIAL */
+.testimonial-section{background:#fff;}
+.testimonial-card{max-width:850px;margin:0 auto;display:grid;grid-template-columns:120px 1fr;gap:30px;align-items:center;background:var(--bg-light2);border-radius:24px;padding:36px;}
+.testimonial-avatar{width:100%;aspect-ratio:1/1;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal-dark));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:32px;}
+.testimonial-name{font-family:'Alegreya',serif;font-weight:700;font-size:20px;color:var(--navy);margin-bottom:4px;}
+.testimonial-role{font-family:'Inter',sans-serif;font-size:13px;color:var(--teal-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;}
+.testimonial-quote{font-family:'Alegreya',serif;font-style:italic;font-size:19px;line-height:1.6;color:var(--text-dark);}
+
+/* OPPORTUNITY GRID */
+.opportunity-section{background:var(--bg-light);}
+.opp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.opp-card{background:#fff;border-radius:20px;padding:30px 24px;box-shadow:0 15px 35px rgba(15,41,66,.05);border-top:4px solid var(--teal);}
+.opp-card h3{font-size:19px;color:var(--navy);margin-bottom:12px;}
+.opp-card p{font-family:'Inter',sans-serif;font-size:14px;color:var(--text-body);line-height:1.7;}
+
+/* PROBLEM / SHIFT */
+.problem-section{background:#fff;}
+.shift-box{max-width:850px;margin:0 auto;background:linear-gradient(135deg,var(--navy),var(--dark-alt));border-radius:28px;padding:44px;color:#fff;text-align:center;}
+.shift-box .eyebrow{color:var(--teal-bright);}
+.shift-box h3{color:#fff;font-size:26px;margin-bottom:18px;}
+.shift-box p{font-family:'Inter',sans-serif;font-size:17px;line-height:1.8;color:rgb(207,227,223);}
+
+/* SOLUTION */
+.solution-box{max-width:850px;margin:40px auto 0;background:var(--bg-light4);border-radius:28px;padding:44px;text-align:center;border:1px solid var(--mint2);}
+.solution-box .eyebrow{color:var(--teal-dark);}
+.solution-box h3{font-size:28px;color:var(--navy);margin-bottom:16px;}
+.solution-box p{font-family:'Inter',sans-serif;font-size:17px;line-height:1.8;color:var(--text-body);}
+
+/* STORY */
+.story-section{background:var(--bg-light3);}
+.story-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:340px 1fr;gap:50px;align-items:center;}
+.author-photo{width:100%;aspect-ratio:1/1;border-radius:24px;background:linear-gradient(135deg,var(--teal-dark),var(--navy));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Alegreya SC',serif;font-size:44px;font-weight:700;}
+.story-content h3{font-size:30px;color:var(--navy);margin-bottom:6px;}
+.story-content .sub{font-family:'Alegreya',serif;font-style:italic;color:var(--teal-dark);font-size:18px;margin-bottom:20px;}
+.story-content p{font-family:'Inter',sans-serif;color:var(--text-body);font-size:16px;line-height:1.85;margin-bottom:14px;}
+
+/* OUTCOMES */
+.outcomes-section{background:#fff;}
+.outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.outcome-card{background:var(--bg-light);border-radius:20px;padding:28px 24px;border-left:4px solid var(--teal);}
+.outcome-card h3{font-size:19px;color:var(--navy);margin-bottom:10px;}
+.outcome-card p{font-family:'Inter',sans-serif;font-size:14px;color:var(--text-body);line-height:1.7;}
+
+/* EVERYTHING YOU GET / PRICE STACK */
+.stack-section{background:linear-gradient(160deg,var(--bg-light) 0%,var(--bg-light4) 100%);}
+.stack-box{max-width:700px;margin:0 auto;background:#fff;border-radius:28px;padding:44px;box-shadow:0 25px 60px rgba(15,41,66,.08);}
+.stack-row{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px dashed var(--border);}
+.stack-row .item{font-family:'Inter',sans-serif;font-size:16px;color:var(--navy);font-weight:600;}
+.stack-row .off{background:var(--bg-light4);color:var(--teal-dark);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;}
+.plus-divider{text-align:center;color:var(--teal-dark);font-size:22px;font-weight:700;padding:6px 0;}
+.value-line{text-align:center;margin:24px 0;font-family:'Inter',sans-serif;color:var(--text-body);font-size:16px;}
+.value-line span{color:var(--navy);font-weight:800;font-size:20px;}
+.price-final{text-align:center;margin:20px 0 30px;}
+.price-final .label{font-family:'Inter',sans-serif;font-size:14px;color:var(--text-body);margin-bottom:8px;}
+.price-final .amount{font-family:'Alegreya',serif;font-size:56px;font-weight:800;color:var(--teal-dark);}
+
+/* FINAL CTA */
+.final-section{background:linear-gradient(160deg,var(--navy),var(--dark-alt));color:#fff;text-align:center;position:relative;}
+.final-inner{max-width:800px;margin:0 auto;}
+.final-inner h2{color:#fff;font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:18px;}
+.final-inner p{font-family:'Inter',sans-serif;color:rgb(207,227,223);font-size:18px;line-height:1.8;margin-bottom:30px;}
+.price-highlight{display:flex;justify-content:center;gap:16px;align-items:baseline;margin-bottom:30px;}
+.price-highlight .old{font-size:18px;color:rgba(255,255,255,.5);text-decoration:line-through;}
+.price-highlight .new{font-family:'Alegreya',serif;font-size:42px;color:var(--teal-bright);font-weight:800;}
+.final-tagline{margin-top:30px;font-family:'Alegreya',serif;font-style:italic;font-size:20px;color:rgb(207,227,223);}
+.final-tagline span{color:var(--teal-bright);font-weight:700;}
+.disclaimer{font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.4);max-width:700px;margin:40px auto 0;line-height:1.7;}
+
+/* URGENCY BAR */
+.urgency-bar{background:var(--navy);border-top:3px solid var(--teal);padding:20px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#fff;}
+.urgency-bar .msg{font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;}
+.urgency-bar .msg b{color:var(--teal-bright);}
+.footer-plain{text-align:center;padding:36px 20px;background:#f4f4f4;color:#999;font-size:12px;font-family:'Inter',sans-serif;line-height:1.8;}
+
+@media(max-width:1000px){
+  .hero-grid,.story-grid,.testimonial-card{grid-template-columns:1fr;}
+  .opp-grid,.outcomes-grid{grid-template-columns:repeat(2,1fr);}
+  .price-highlight{flex-direction:column;gap:4px;}
+  section{padding:60px 16px;}
+}
+</style>
+</head>
+<body>
+
+<div class="portfolio-banner">PORTFOLIO SAMPLE — anonymized rebuild. Author identity, testimonials &amp; photos replaced with placeholders.</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag">For Physiotherapists</div>
+      <h1>Transform From Physiotherapist To Physiopreneur</h1>
+      <div class="hero-sub">The roadmap no college ever taught you</div>
+      <p class="hero-desc">Learn how physiotherapists are building sustainable income, attracting patients consistently, and growing beyond clinics using proven online consultation systems.</p>
+      <a href="#" class="btn">Get The Book Now</a>
+      <p class="hero-note">Instant access • One-time investment</p>
+    </div>
+    <div class="book-cover">[Book Title]</div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-section">
+  <div class="wrap center">
+    <span class="eyebrow">What Physiotherapists Are Saying</span>
+  </div>
+  <div class="testimonial-card">
+    <div class="testimonial-avatar">[D]</div>
+    <div>
+      <div class="testimonial-name">[Reviewer Name]</div>
+      <div class="testimonial-role">Physiotherapist</div>
+      <p class="testimonial-quote">"It made me realize that while we're great at our work, we're often not taught how to grow it as a business. As a physiotherapist, it's important to serve more people — and this book completely shifted my perspective."</p>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITY -->
+<section class="opportunity-section">
+  <div class="wrap center">
+    <h2 class="section-title">The Opportunity in Physiotherapy Is <span class="accent">Bigger Than Ever</span></h2>
+    <p class="section-desc">Healthcare is evolving faster than ever before. Demand is rising. Patients are changing. And digital is becoming the new normal.</p>
+  </div>
+  <div class="wrap">
+    <div class="opp-grid">
+      <div class="opp-card"><h3>Growing Demand</h3><p>Physiotherapy demand is increasing globally due to lifestyle disorders, aging population, and rehabilitation awareness.</p></div>
+      <div class="opp-card"><h3>Digital Shift</h3><p>Online consultations and telehealth are opening new income channels beyond traditional clinic practice.</p></div>
+      <div class="opp-card"><h3>Changing Patient Behavior</h3><p>Patients now prefer convenience, accessibility, and digital-first healthcare experiences.</p></div>
+      <div class="opp-card"><h3>Digital Advantage</h3><p>Professionals with strong online presence are attracting more patients and building authority faster.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM / SHIFT -->
+<section class="problem-section">
+  <div class="wrap center">
+    <h2 class="section-title">Why Most Physiotherapists Feel <span class="accent">Stuck</span></h2>
+    <p class="section-desc">You studied hard, built your skills, and you're helping patients every day. But despite all that effort, something still doesn't feel right.</p>
+  </div>
+  <div class="shift-box">
+    <span class="eyebrow">The Real Shift</span>
+    <h3>This Is Not Your Skill Problem… It's a System Problem</h3>
+    <p>The difference is not how hard you work. The difference is whether you are following a system that turns skill into career growth.</p>
+  </div>
+  <div class="solution-box">
+    <span class="eyebrow">The Solution</span>
+    <h3>Introducing: [Book Title]</h3>
+    <p>A practical, step-by-step guide designed specifically for physiotherapists who want more than just a clinic-based career. This book helps you transition from just a practitioner → to a physiopreneur.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="story-grid">
+    <div class="author-photo">[A]</div>
+    <div class="story-content">
+      <span class="eyebrow">The Story Behind The Book</span>
+      <h3>From Practice to Purpose</h3>
+      <div class="sub">Why this book was written</div>
+      <p>[Book Title] was born from a simple realization — physiotherapists are highly skilled at what they do, but very few are taught how to grow beyond practice.</p>
+      <p>[Author Name] saw this gap clearly. While many therapists were dedicated to patient care, they often struggled with visibility, positioning, confidence in growth, and building a sustainable career outside the traditional clinic model.</p>
+      <p>This book was created to bridge that gap — to help physiotherapists think bigger, build smarter, and move from simply practicing their profession to shaping a meaningful and scalable future through it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="outcomes-section">
+  <div class="wrap center">
+    <h2 class="section-title">What This Book Will Help You <span class="accent">Achieve</span></h2>
+  </div>
+  <div class="wrap">
+    <div class="outcomes-grid">
+      <div class="outcome-card"><h3>Predictable Income</h3><p>Build a consistent and reliable income stream beyond clinic limitations.</p></div>
+      <div class="outcome-card"><h3>Freedom of Time</h3><p>Create income streams that don't depend on physical sessions alone.</p></div>
+      <div class="outcome-card"><h3>Authority Building</h3><p>Position yourself as a trusted expert in your niche.</p></div>
+      <div class="outcome-card"><h3>Consistent Patients</h3><p>Attract patients without depending on referrals or luck.</p></div>
+      <div class="outcome-card"><h3>Career Growth</h3><p>Move beyond clinic-based limitations and scale your career.</p></div>
+      <div class="outcome-card"><h3>Location Freedom</h3><p>Work and earn beyond geographical boundaries.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVERYTHING YOU GET -->
+<section class="stack-section">
+  <div class="wrap center">
+    <h2 class="section-title">Everything You Get</h2>
+  </div>
+  <div class="stack-box">
+    <div class="stack-row"><div class="item">📕 Book → ₹[XXX]</div><div class="off">₹[XXX] off</div></div>
+    <div class="plus-divider">+</div>
+    <div class="stack-row"><div class="item">🎓 ₹[X,XXX] worth Expert Sessions + Community Access</div></div>
+    <div class="plus-divider">+</div>
+    <div class="stack-row" style="border-bottom:none;"><div class="item">🚀 ₹[X,XXX] worth Launchpad Session Recording</div></div>
+    <div class="value-line">Total Value: <span>₹[X,XXX]+</span></div>
+    <div class="price-final">
+      <div class="label">Yours Today for</div>
+      <div class="amount">₹[XXX]</div>
+    </div>
+    <a href="#" class="btn" style="width:100%;">Get The Book Now</a>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-section">
+  <div class="final-inner">
+    <h2>Start Your Physiopreneur Journey Today</h2>
+    <p>The physiotherapy world is changing.<br>The question is — <strong style="color:#fff;">will you stay stuck, or will you evolve?</strong></p>
+    <div class="price-highlight"><div class="old">₹[XXX] + ₹[X,XXX] Bonuses</div><div class="new">₹[XXX]</div></div>
+    <a href="#" class="btn">Get The Book Now</a>
+    <div class="final-tagline">Your Degree Gave You Skills…<br><span>This Book Gives You Direction</span></div>
+    <p class="disclaimer">This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is not endorsed by Facebook in any way. Facebook is a trademark of Facebook, Inc.</p>
+  </div>
+</section>
+
+<div class="footer-plain">This is a portfolio recreation built to demonstrate funnel copy &amp; structure. Author identity, testimonials, and imagery have been anonymized/replaced with placeholders.</div>
+
+<div class="urgency-bar">
+  <div class="msg">⏳ First 100 people are getting this deal…<br>Book worth <s>₹[XXX]</s> now available at just <b>₹[XXX]</b> — along with <b>₹[X,XXX] worth bonuses</b></div>
+  <a href="#" class="btn" style="padding:14px 26px;font-size:15px;">Get The Book</a>
+</div>
+
+</body>
+</html>
